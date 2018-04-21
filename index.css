@@ -1,5 +1,7 @@
 @media screen {
     body {
+        align-items: center;
+        background-color: #fafafa;
         display: flex;
         flex-direction: column;
         font-family: 'Lato', sans-serif;
@@ -15,6 +17,7 @@
         padding: 50px 0 30px;
         text-align: center;
         text-transform: uppercase;
+        width: 100%;
     }
 
     header span {
@@ -32,53 +35,27 @@
         letter-spacing: 5px;
     }
 
-    header span:last-child {
+    header span:last-of-type {
         border: unset;
         border-top: 3px solid white;
         padding: 0;
         width: 120px;
     }
 
+    header div {
+        font-size: 14px;
+        text-transform: none;
+    }
+
+    header div a {
+        color: white;
+        text-decoration: unset;
+    }
+
     main {
         display: flex;
         flex: 1;
-    }
-
-    main aside {
-        background-color: lightgray;
-        display: flex;
-        flex-direction: column;
-        max-width: 300px;
-        padding: 30px 40px;
-    }
-
-    main aside div {
-        margin-bottom: 20px;
-        text-align: right;
-    }
-
-    main aside h2,
-    main section h2 {
-        border-bottom: 1px solid grey;
-        font-size: 20px;
-        letter-spacing: 5px;
-        padding: 10px 0;
-        text-transform: uppercase;
-    }
-
-    main aside ul {
-        list-style-type: none;
-    }
-
-    main aside ul li {
-        font-size: 18px;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-    }
-
-    main aside ul li a {
-        color: black;
-        text-decoration: none;
+        max-width: 800px;
     }
 
     main section {
@@ -86,12 +63,12 @@
         padding: 30px 40px;
     }
 
-    main section p {
-        line-height: 1.5;
+    main section h2 {
+        text-decoration: underline;
     }
 
-    main section article {
-        margin-bottom: 20px;
+    main section p {
+        line-height: 1.5;
     }
 
     main section article div {
@@ -101,18 +78,23 @@
 }
 
 @media print {
+
+    @page {
+        size: A4;
+        margin: 10mm 0 25mm 0;
+    }
+
     body {
         display: flex;
         flex-direction: column;
         font-family: 'Lato', sans-serif;
-        min-height: 100vh;
-        padding: 0;
         margin: 0;
     }
 
     header {
         background: #333;
         color: white;
+        margin: 0;
         padding: 1.5cm 0 1cm;
         text-align: center;
         text-transform: uppercase;
@@ -121,23 +103,33 @@
     header span {
         border: 3px solid white;
         display: inline-block;
-        font-size: 24px;
+        font-size: 24pt;
         letter-spacing: 0.2cm;
         margin-bottom: 0.5cm;
         padding: 0.5cm 0.75cm;
     }
 
     header h2 {
-        font-size: 16px;
+        font-size: 16pt;
         font-weight: 300;
         letter-spacing: 0.1cm;
     }
 
-    header span:last-child {
+    header span:last-of-type {
         border: unset;
         border-top: 3px solid white;
         padding: 0;
         width: 2cm;
+    }
+
+    header div {
+        font-size: 12pt;
+        text-transform: none;
+    }
+
+    header div a {
+        color: white;
+        text-decoration: unset;
     }
 
     main {
@@ -145,47 +137,13 @@
         flex: 1;
     }
 
-    main aside {
-        background-color: lightgray;
-        display: flex;
-        flex-direction: column;
-        max-width: 4cm;
-        padding: 1cm 0.75cm;
-    }
-
-    main aside div {
-        margin-bottom: 0.5cm;
-        text-align: right;
-    }
-
-    main aside h2,
-    main section h2 {
-        border-bottom: 1px solid grey;
-        font-size: 14px;
-        letter-spacing: 0.1cm;
-        padding: 0.25cm 0;
-        text-transform: uppercase;
-    }
-
-    main aside ul {
-        list-style-type: none;
-    }
-
-    main aside ul li {
-        font-size: 12px;
-        margin-bottom: 0.5cm;
-        text-transform: uppercase;
-    }
-
-    main aside ul li a {
-        color: black;
-        text-decoration: none;
-        font-size: 8px;
-    }
-
     main section {
         flex: 1;
         padding: 1cm 0.75cm;
+    }
+
+    main section h2 {
+        text-decoration: underline;
     }
 
     main section p {
@@ -194,13 +152,14 @@
 
     main section article {
         margin-bottom: 0.5cm;
+        page-break-inside: avoid;
+        page-break-before: auto;
     }
 
     main section article div {
         border-bottom: 1px solid lightgrey;
         margin-bottom: 0.75cm;
         page-break-inside: avoid;
-        page-break-after: right;
     }
 
     main section article div h3 {
